@@ -21,52 +21,92 @@
     </div>
 </template>
 <script>
-import c3 from 'c3'
-import {ENDPOINT} from './endpoint.js'
-import TopButton from './TopButton.vue'
-export default {
-    data () {
-        return {}
-    },
-    computed: {},
-    mounted () {
-          this.axios.get(ENDPOINT+'/movie_category').then((response) => {
-            let data = response.data.split('|')
-        const chart = c3.generate({
-            bindto: '#pie',
-            data: {
-                // iris data from R
-                columns: [
-                ['Action',25589],
-                ['Adventure',13753],
-                ['Animation',3605],
-                ['Children.s',7182],
-                ['Comedy',29832],
-                ['Crime',8055],
-                ['Documentary',758],
-                ['Drama',39895],
-                ['Fantasy',1352],
-                ['Film-Noir',1733],
-                ['Horror',5317],
-                ['Musical',4954],
-                ['Mystery',5245],
-                ['Romance',19461],
-                ['Sci-Fi',12730],
-                ['Thriller',21872],
-                ['War',9398],
-                ['Western',1854]
-                ],
-            type : 'pie',
-            onclick:  (d, i)=> { console.log("onclick", d, i); },
-            onmouseover:  (d, i)=> { console.log("onmouseover", d, i); },
-            onmouseout:  (d, i) => { console.log("onmouseout", d, i); }
+    import c3 from 'c3'
+    import {
+        ENDPOINT
+    } from './endpoint.js'
+    import TopButton from './TopButton.vue'
+    export default {
+        data() {
+            return {}
+        },
+        computed: {},
+        mounted() {
+            //           this.axios.get(ENDPOINT+'/movie_category').then((response) => {
+            //             let data = response.data.split('|')
+            //         const chart = c3.generate({
+            //             bindto: '#pie',
+            //             data: {
+            //                 // iris data from R
+            //                 columns: [
+            //                 ['Action',25589],
+            //                 ['Adventure',13753],
+            //                 ['Animation',3605],
+            //                 ['Children.s',7182],
+            //                 ['Comedy',29832],
+            //                 ['Crime',8055],
+            //                 ['Documentary',758],
+            //                 ['Drama',39895],
+            //                 ['Fantasy',1352],
+            //                 ['Film-Noir',1733],
+            //                 ['Horror',5317],
+            //                 ['Musical',4954],
+            //                 ['Mystery',5245],
+            //                 ['Romance',19461],
+            //                 ['Sci-Fi',12730],
+            //                 ['Thriller',21872],
+            //                 ['War',9398],
+            //                 ['Western',1854]
+            //                 ],
+            //             type : 'pie',
+            //             onclick:  (d, i)=> { console.log("onclick", d, i); },
+            //             onmouseover:  (d, i)=> { console.log("onmouseover", d, i); },
+            //             onmouseout:  (d, i) => { console.log("onmouseout", d, i); }
+            //     }
+            // })
+            // })
+            const chart = c3.generate({
+                bindto: '#pie',
+                data: {
+                    // iris data from R
+                    columns: [
+                        ['Action', 25589],
+                        ['Adventure', 13753],
+                        ['Animation', 3605],
+                        ['Children.s', 7182],
+                        ['Comedy', 29832],
+                        ['Crime', 8055],
+                        ['Documentary', 758],
+                        ['Drama', 39895],
+                        ['Fantasy', 1352],
+                        ['Film-Noir', 1733],
+                        ['Horror', 5317],
+                        ['Musical', 4954],
+                        ['Mystery', 5245],
+                        ['Romance', 19461],
+                        ['Sci-Fi', 12730],
+                        ['Thriller', 21872],
+                        ['War', 9398],
+                        ['Western', 1854]
+                    ],
+                    type: 'pie',
+                    onclick: (d, i) => {
+                        console.log("onclick", d, i);
+                    },
+                    onmouseover: (d, i) => {
+                        console.log("onmouseover", d, i);
+                    },
+                    onmouseout: (d, i) => {
+                        console.log("onmouseout", d, i);
+                    }
+                }
+            })
+        },
+        methods: {},
+        components: {
+            TopButton
+        }
     }
-})
-})
-    },
-    methods: {},
-    components: {TopButton}
-}
 </script>
 <style scoped>
     #pie {
