@@ -45,7 +45,7 @@
                 .size([width, width])
                 .padding(1.5);
 
-            d3.csv('HCI_virtualization/src/assets/flare.csv', function(d) {
+            d3.csv('/HCI_virtualization/src/assets/flare.csv', function(d) {
                 d.value = +d.value;
                 if (d.value) return d;
             }, function(error, classes) {
